@@ -1,0 +1,31 @@
+{
+  "name": "syncfg",
+  "version": "1.0.0",
+  "description": "The Simplest way to store variables in configuration files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/glazs/syncfg.git"
+  },
+  "keywords": [
+    "localStorage",
+    "config",
+    "proxy",
+    "storage",
+    "file",
+    "sync",
+    "sync",
+    "config",
+    "config",
+    "file"
+  ],
+  "author": "Eugene Glazyrin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glazs/syncfg/issues"
+  },
+  "homepage": "https://github.com/glazs/syncfg#readme"
+}
