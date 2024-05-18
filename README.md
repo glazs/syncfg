@@ -19,7 +19,7 @@ Features
  - Access the same config object from multiple files
  - Store any serializable data types
 
-Disanventages
+Disadvantages
 -------------
  - Can set only a single parameter per call
  - Writes to the file after each parameter set
