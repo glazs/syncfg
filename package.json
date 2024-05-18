@@ -1,6 +1,7 @@
 {
   "name": "syncfg",
   "version": "1.0.0",
+  "type": "module",
   "description": "The Simplest way to store variables in configuration files",
   "main": "index.js",
   "scripts": {
