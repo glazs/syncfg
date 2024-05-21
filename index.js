@@ -44,6 +44,12 @@ export default function syncfg (path) {
 		}
 	})
 
+	// Define non-enumerable property setMultiple
+	Object.defineProperty(target, 'setMultiple', {
+		enumerable: false,
+		writable: true
+	})
+
 	// Set multiple parameter but write once
 	target.setMultiple = (values) => {
 		for (let key in values) {
