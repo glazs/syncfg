@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs'
 
 // Store proxy objects
 const storage = {}
@@ -18,20 +18,40 @@ export default function syncfg (path) {
 		fileContent = '{}'
 	}
 
+	const target = JSON.parse(fileContent)
+
 	// Initalize proxy
-	storage[path] = new Proxy(JSON.parse(fileContent), {
-		// Redefine getter
-		get() {
-			return Reflect.get(...arguments)
-		},
+	storage[path] = new Proxy(target, {
 		// Redefine setter
 		set(target, name, value) {
+			// Protect setMultiple method
+			if (name == 'setMultiple') {
+				console.log('setMultiple is protected method')
+				return false
+			}
 			target[name] = value
 			// Write changes
 			writeFileSync(path, JSON.stringify(target, null, 2))
 			return Reflect.set(...arguments)
+		},
+		// Handle native delete
+		deleteProperty(target, property) {
+			if (property in target) {
+				delete target[property]
+				writeFileSync(path, JSON.stringify(target, null, 2))
+			}
+			return true
 		}
 	})
+
+	// Set multiple parameter but write once
+	target.setMultiple = (values) => {
+		for (let key in values) {
+			console.log(key)
+			target[key] = values[key]
+		}
+		writeFileSync(path, JSON.stringify(target, null, 2))
+	}
 
 	return storage[path]
 
