@@ -53,7 +53,6 @@ export default function syncfg (path) {
 	// Set multiple parameter but write once
 	target.setMultiple = (values) => {
 		for (let key in values) {
-			console.log(key)
 			target[key] = values[key]
 		}
 		writeFileSync(path, JSON.stringify(target, null, 2))
