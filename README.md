@@ -7,11 +7,12 @@ ensuring data is saved each time you set properties.
 
 Works similarly to localStorage for Node.js,
 but no manual serialization is needed.
-
 A perfect solution for storing API authentication data
 without involving a database.
 
-Based on ES6 proxy.
+Based on ES6 proxy, this package ensures seamless and automatic
+data persistence. Ideal for configuration management,
+file-based storage, and handling settings in Node.js applications.
 
 
 Features
@@ -47,6 +48,7 @@ import syncfg from 'syncfg'
 const config = syncfg('path/to/config.json')
 
 
+
 // Setting a parameter updates the file automatically
 config.param = 'value'
 
@@ -55,6 +57,7 @@ console.log(config.param)
 
 // Deleting a parameter
 delete config.param
+
 
 
 // Setting multiple parameters but writing to the file once
@@ -70,3 +73,11 @@ const {param1, param2} = config
 License
 -------
 Internet Systems Consortium License
+
+
+Keywords
+--------
+Configuration management, config file, localStorage alternative, Node.js storage,
+automatic serialization, API keys storage, ES6 proxy, file synchronization,
+data persistence, Node.js settings, JSON storage, config manager, Node.js config,
+file-based storage, Node.js persistence, settings management.

@@ -19,20 +19,16 @@ export default function syncfg (path) {
 	}
 
 	const target = JSON.parse(fileContent)
+	const protectedErrorText = 'The parameter "setMultiple" cannot be set because it is protected and reserved as a method'
 
 	// Initalize proxy
 	storage[path] = new Proxy(target, {
 		// Redefine setter
 		set(target, name, value) {
-			// Protect setMultiple method
-			if (name == 'setMultiple') {
-				console.log('setMultiple is protected method')
-				return false
-			}
+			if (name == 'setMultiple') throw new Error(protectedErrorText)
 			target[name] = value
-			// Write changes
 			writeFileSync(path, JSON.stringify(target, null, 2))
-			return Reflect.set(...arguments)
+			return true
 		},
 		// Handle native delete
 		deleteProperty(target, property) {
@@ -52,6 +48,7 @@ export default function syncfg (path) {
 
 	// Set multiple parameter but write once
 	target.setMultiple = (values) => {
+		if ('setMultiple' in values) throw new Error(protectedErrorText)
 		for (let key in values) {
 			target[key] = values[key]
 		}
