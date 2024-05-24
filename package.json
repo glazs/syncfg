@@ -1,44 +1,55 @@
 {
-  "name": "syncfg",
-  "version": "2.0.3",
-  "type": "module",
-  "description": "The Simplest way to store variables in configuration files",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/glazs/syncfg.git"
-  },
-  "keywords": [
-    "configuration management",
-    "config file",
-    "localstorage alternative",
-    "node.js storage",
-    "automatic serialization",
-    "api keys storage",
-    "es6 proxy",
-    "file synchronization",
-    "data persistence",
-    "node.js settings",
-    "json storage",
-    "config manager",
-    "node.js config",
-    "file-based storage",
-    "node.js persistence",
-    "settings management",
-    "localStorage",
-    "config",
-    "proxy",
-    "storage",
-    "file sync",
-    "sync config"
-  ],
-  "author": "Eugene Glazyrin",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/glazs/syncfg/issues"
-  },
-  "homepage": "https://github.com/glazs/syncfg#readme"
+	"name": "syncfg",
+	"version": "2.0.3",
+	"type": "module",
+	"description": "The Simplest way to store variables in configuration files",
+	"main": "index.js",
+	"scripts": {
+		"build": "rimraf dist && tsup",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/glazs/syncfg.git"
+	},
+	"files": [
+		"./dist"
+	],
+	"keywords": [
+		"configuration management",
+		"config file",
+		"localstorage alternative",
+		"node.js storage",
+		"automatic serialization",
+		"api keys storage",
+		"es6 proxy",
+		"file synchronization",
+		"data persistence",
+		"node.js settings",
+		"json storage",
+		"config manager",
+		"node.js config",
+		"file-based storage",
+		"node.js persistence",
+		"settings management",
+		"localStorage",
+		"config",
+		"proxy",
+		"storage",
+		"file sync",
+		"sync config"
+	],
+	"author": "Eugene Glazyrin",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/glazs/syncfg/issues"
+	},
+	"homepage": "https://github.com/glazs/syncfg#readme",
+	"devDependencies": {
+		"@biomejs/biome": "^1.7.3",
+		"@types/node": "^20.12.12",
+		"rimraf": "^5.0.7",
+		"tsup": "^8.0.2",
+		"typescript": "^5.4.5"
+	}
 }
